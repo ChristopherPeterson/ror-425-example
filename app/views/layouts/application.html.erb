@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <title>Nutrition</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <%= nav_bar fixed: :top, brand: "Nutrition Data - Rails 4.2.5 Example App", responsive: true do %>
+    <%= menu_group do %>
+      <%= menu_item "Home", root_path %>
+      <%= menu_divider %>
+      <%= drop_down "Home" do %>
+        <%= menu_item "Home", root_path %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == "notice" ? "success" : "danger" %>">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

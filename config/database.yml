@@ -1,0 +1,26 @@
+default: &default
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  pool: 5
+
+development:
+  <<: *default
+  database: nutrition_dev
+  username: root
+  password: root
+  host: localhost
+
+test:
+  <<: *default
+  database: nutrition_test
+  username: root
+  password: root
+  host: localhost
+
+production:
+  <<: *default
+  database: nutrition_production
+  username: root
+  password: root
+  host: localhost

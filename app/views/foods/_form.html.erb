@@ -1,0 +1,51 @@
+<%= simple_form_for @food, :html => { :class => "form-horizontal food" } do |f| %>
+
+  <% if @food.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @food.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.input :food_code %>
+  <%= f.input :display_name %>
+  <%= f.input :portion_default %>
+  <%= f.input :portion_amount %>
+  <%= f.input :portion_display_name %>
+  <%= f.input :factor %>
+  <%= f.input :portion_increment %>
+  <%= f.input :multiplier %>
+  <%= f.input :grains %>
+  <%= f.input :whole_grains %>
+  <%= f.input :vegetables %>
+  <%= f.input :orange_vegetables %>
+  <%= f.input :drkgreen_vegetables %>
+  <%= f.input :starchy_vegetables %>
+  <%= f.input :other_vegetables %>
+  <%= f.input :fruits %>
+  <%= f.input :milk %>
+  <%= f.input :meats %>
+  <%= f.input :soy %>
+  <%= f.input :drybeans_peas %>
+  <%= f.input :oils %>
+  <%= f.input :solid_fats %>
+  <%= f.input :added_sugars %>
+  <%= f.input :alcohol %>
+  <%= f.input :calories %>
+  <%= f.input :saturated_fats %>
+
+  <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                foods_path, :class => 'btn btn-default' %>
+  </div>
+
+<% end %>
