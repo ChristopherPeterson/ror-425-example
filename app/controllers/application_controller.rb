@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     #   and build Database models.
     parse_food_xml()
     parse_condiment_xml()
+    parse_needing_xml()
   end
 
   def parse_food_xml
