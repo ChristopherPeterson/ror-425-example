@@ -1,0 +1,32 @@
+<%= simple_form_for(@condiment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :survey_food_code %>
+    <%= f.input :display_name %>
+    <%= f.input :portion_size %>
+    <%= f.input :portion_code %>
+    <%= f.input :grains %>
+    <%= f.input :whole_grains %>
+    <%= f.input :vegetables %>
+    <%= f.input :dkgreen %>
+    <%= f.input :orange %>
+    <%= f.input :starchy_vegetables %>
+    <%= f.input :other_vegetables %>
+    <%= f.input :fruits %>
+    <%= f.input :milk %>
+    <%= f.input :meat %>
+    <%= f.input :soy %>
+    <%= f.input :drybeans_peas %>
+    <%= f.input :oils %>
+    <%= f.input :solid_fats %>
+    <%= f.input :added_sugars %>
+    <%= f.input :alcohol %>
+    <%= f.input :calories %>
+    <%= f.input :saturated_fats %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -6,12 +6,18 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
+$green_color: #10f876;
+$title_text_color: #000000;
 
 @import "twitter-bootstrap-static/bootstrap";
 
 body { padding-top: 60px; }
 
 .navbar-default {
-  background-color: #78f81c;
-  border-color: #78f81c;
+  background-color: $green_color;
+  border-color: $green_color;
+
+  .navbar-brand {
+    color: $title_text_color;
+  }
 }

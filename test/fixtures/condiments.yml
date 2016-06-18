@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  survey_food_code: 
+  display_name: MyString
+  portion_size: MyString
+  portion_code: 1
+  grains: 1.5
+  whole_grains: 1.5
+  vegetables: 1.5
+  dkgreen: 1.5
+  orange: 1.5
+  starchy_vegetables: 1.5
+  other_vegetables: 1.5
+  fruits: 1.5
+  milk: 1.5
+  meat: 1.5
+  soy: 1.5
+  drybeans_peas: 1.5
+  oils: 1.5
+  solid_fats: 1.5
+  added_sugars: 1.5
+  alcohol: 1.5
+  calories: 1.5
+  saturated_fats: 1.5
+
+two:
+  survey_food_code: 
+  display_name: MyString
+  portion_size: MyString
+  portion_code: 1
+  grains: 1.5
+  whole_grains: 1.5
+  vegetables: 1.5
+  dkgreen: 1.5
+  orange: 1.5
+  starchy_vegetables: 1.5
+  other_vegetables: 1.5
+  fruits: 1.5
+  milk: 1.5
+  meat: 1.5
+  soy: 1.5
+  drybeans_peas: 1.5
+  oils: 1.5
+  solid_fats: 1.5
+  added_sugars: 1.5
+  alcohol: 1.5
+  calories: 1.5
+  saturated_fats: 1.5

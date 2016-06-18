@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Condiments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Survey food code</th>
+      <th>Display name</th>
+      <th>Portion size</th>
+      <th>Portion code</th>
+      <th>Grains</th>
+      <th>Whole grains</th>
+      <th>Vegetables</th>
+      <th>Dkgreen</th>
+      <th>Orange</th>
+      <th>Starchy vegetables</th>
+      <th>Other vegetables</th>
+      <th>Fruits</th>
+      <th>Milk</th>
+      <th>Meat</th>
+      <th>Soy</th>
+      <th>Drybeans peas</th>
+      <th>Oils</th>
+      <th>Solid fats</th>
+      <th>Added sugars</th>
+      <th>Alcohol</th>
+      <th>Calories</th>
+      <th>Saturated fats</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @condiments.each do |condiment| %>
+      <tr>
+        <td><%= condiment.survey_food_code %></td>
+        <td><%= condiment.display_name %></td>
+        <td><%= condiment.portion_size %></td>
+        <td><%= condiment.portion_code %></td>
+        <td><%= condiment.grains %></td>
+        <td><%= condiment.whole_grains %></td>
+        <td><%= condiment.vegetables %></td>
+        <td><%= condiment.dkgreen %></td>
+        <td><%= condiment.orange %></td>
+        <td><%= condiment.starchy_vegetables %></td>
+        <td><%= condiment.other_vegetables %></td>
+        <td><%= condiment.fruits %></td>
+        <td><%= condiment.milk %></td>
+        <td><%= condiment.meat %></td>
+        <td><%= condiment.soy %></td>
+        <td><%= condiment.drybeans_peas %></td>
+        <td><%= condiment.oils %></td>
+        <td><%= condiment.solid_fats %></td>
+        <td><%= condiment.added_sugars %></td>
+        <td><%= condiment.alcohol %></td>
+        <td><%= condiment.calories %></td>
+        <td><%= condiment.saturated_fats %></td>
+        <td><%= link_to 'Show', condiment %></td>
+        <td><%= link_to 'Edit', edit_condiment_path(condiment) %></td>
+        <td><%= link_to 'Destroy', condiment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Condiment', new_condiment_path %>

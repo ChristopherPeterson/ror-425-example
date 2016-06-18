@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616001336) do
+ActiveRecord::Schema.define(version: 20160618135732) do
+
+  create_table "condiments", primary_key: "survey_food_code", force: :cascade do |t|
+    t.string   "display_name",       limit: 255
+    t.string   "portion_size",       limit: 255
+    t.integer  "portion_code",       limit: 4
+    t.float    "grains",             limit: 24
+    t.float    "whole_grains",       limit: 24
+    t.float    "vegetables",         limit: 24
+    t.float    "dkgreen",            limit: 24
+    t.float    "orange",             limit: 24
+    t.float    "starchy_vegetables", limit: 24
+    t.float    "other_vegetables",   limit: 24
+    t.float    "fruits",             limit: 24
+    t.float    "milk",               limit: 24
+    t.float    "meat",               limit: 24
+    t.float    "soy",                limit: 24
+    t.float    "drybeans_peas",      limit: 24
+    t.float    "oils",               limit: 24
+    t.float    "solid_fats",         limit: 24
+    t.float    "added_sugars",       limit: 24
+    t.float    "alcohol",            limit: 24
+    t.float    "calories",           limit: 24
+    t.float    "saturated_fats",     limit: 24
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "foods", primary_key: "food_code", force: :cascade do |t|
     t.string   "display_name",         limit: 255
@@ -41,6 +67,13 @@ ActiveRecord::Schema.define(version: 20160616001336) do
     t.float    "saturated_fats",       limit: 24
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "needings", force: :cascade do |t|
+    t.integer  "food_id",      limit: 4
+    t.integer  "condiment_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
