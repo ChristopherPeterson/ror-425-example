@@ -2,72 +2,14 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:food_code) %></th>
-      <th><%= model_class.human_attribute_name(:display_name) %></th>
-      <th><%= model_class.human_attribute_name(:portion_default) %></th>
-      <th><%= model_class.human_attribute_name(:portion_amount) %></th>
-      <th><%= model_class.human_attribute_name(:portion_display_name) %></th>
-      <th><%= model_class.human_attribute_name(:factor) %></th>
-      <th><%= model_class.human_attribute_name(:portion_increment) %></th>
-      <th><%= model_class.human_attribute_name(:multiplier) %></th>
-      <th><%= model_class.human_attribute_name(:grains) %></th>
-      <th><%= model_class.human_attribute_name(:whole_grains) %></th>
-      <th><%= model_class.human_attribute_name(:vegetables) %></th>
-      <th><%= model_class.human_attribute_name(:orange_vegetables) %></th>
-      <th><%= model_class.human_attribute_name(:drkgreen_vegetables) %></th>
-      <th><%= model_class.human_attribute_name(:starchy_vegetables) %></th>
-      <th><%= model_class.human_attribute_name(:other_vegetables) %></th>
-      <th><%= model_class.human_attribute_name(:fruits) %></th>
-      <th><%= model_class.human_attribute_name(:milk) %></th>
-      <th><%= model_class.human_attribute_name(:meats) %></th>
-      <th><%= model_class.human_attribute_name(:soy) %></th>
-      <th><%= model_class.human_attribute_name(:drybeans_peas) %></th>
-      <th><%= model_class.human_attribute_name(:oils) %></th>
-      <th><%= model_class.human_attribute_name(:solid_fats) %></th>
-      <th><%= model_class.human_attribute_name(:added_sugars) %></th>
-      <th><%= model_class.human_attribute_name(:alcohol) %></th>
-      <th><%= model_class.human_attribute_name(:calories) %></th>
-      <th><%= model_class.human_attribute_name(:saturated_fats) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @foods.each do |food| %>
-      <tr>
-        <td><%= link_to food.id, food_path(food) %></td>
-        <td><%= food.food_code %></td>
-        <td><%= food.display_name %></td>
-        <td><%= food.portion_default %></td>
-        <td><%= food.portion_amount %></td>
-        <td><%= food.portion_display_name %></td>
-        <td><%= food.factor %></td>
-        <td><%= food.portion_increment %></td>
-        <td><%= food.multiplier %></td>
-        <td><%= food.grains %></td>
-        <td><%= food.whole_grains %></td>
-        <td><%= food.vegetables %></td>
-        <td><%= food.orange_vegetables %></td>
-        <td><%= food.drkgreen_vegetables %></td>
-        <td><%= food.starchy_vegetables %></td>
-        <td><%= food.other_vegetables %></td>
-        <td><%= food.fruits %></td>
-        <td><%= food.milk %></td>
-        <td><%= food.meats %></td>
-        <td><%= food.soy %></td>
-        <td><%= food.drybeans_peas %></td>
-        <td><%= food.oils %></td>
-        <td><%= food.solid_fats %></td>
-        <td><%= food.added_sugars %></td>
-        <td><%= food.alcohol %></td>
-        <td><%= food.calories %></td>
-        <td><%= food.saturated_fats %></td>
-        <td><%=l food.created_at %></td>
-        <td>
+
+<div class="row">
+
+  <% @foods.each do |food| %>
+      <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-4">
+        <h3><%= link_to food.display_name, food_path(food)%></h3>
+        <p>(<%=food.food_code%>) Calories: <%=food.calories%></p>
+        <p>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_food_path(food), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -75,11 +17,63 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <button type="button" title="Additional Details" class="btn btn-default" data-container="body" data-toggle="popover" data-html="true" data-placement="bottom" data-content='<dl class=\"dl-horizontal\">
+          <dt><strong><%= model_class.human_attribute_name(:portion_default) %>:</strong></dt>
+        <dd><%= food.portion_default %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:portion_amount) %>:</strong></dt>
+        <dd><%= food.portion_amount %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:portion_display_name) %>:</strong></dt>
+        <dd><%= food.portion_display_name %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:factor) %>:</strong></dt>
+        <dd><%= food.factor %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:portion_increment) %>:</strong></dt>
+        <dd><%= food.portion_increment %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:multiplier) %>:</strong></dt>
+        <dd><%= food.multiplier %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:grains) %>:</strong></dt>
+        <dd><%= food.grains %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:whole_grains) %>:</strong></dt>
+        <dd><%= food.whole_grains %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:vegetables) %>:</strong></dt>
+        <dd><%= food.vegetables %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:orange_vegetables) %>:</strong></dt>
+        <dd><%= food.orange_vegetables %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:drkgreen_vegetables) %>:</strong></dt>
+        <dd><%= food.drkgreen_vegetables %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:starchy_vegetables) %>:</strong></dt>
+        <dd><%= food.starchy_vegetables %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:other_vegetables) %>:</strong></dt>
+        <dd><%= food.other_vegetables %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:fruits) %>:</strong></dt>
+        <dd><%= food.fruits %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:milk) %>:</strong></dt>
+        <dd><%= food.milk %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:meats) %>:</strong></dt>
+        <dd><%= food.meats %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:soy) %>:</strong></dt>
+        <dd><%= food.soy %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:drybeans_peas) %>:</strong></dt>
+        <dd><%= food.drybeans_peas %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:oils) %>:</strong></dt>
+        <dd><%= food.oils %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:solid_fats) %>:</strong></dt>
+        <dd><%= food.solid_fats %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:added_sugars) %>:</strong></dt>
+        <dd><%= food.added_sugars %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:alcohol) %>:</strong></dt>
+        <dd><%= food.alcohol %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:calories) %>:</strong></dt>
+        <dd><%= food.calories %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:saturated_fats) %>:</strong></dt>
+        <dd><%= food.saturated_fats %></dd>
+        </dl>'>
+            Additional Details
+          </button>
+        </p>
+      </section>
+  <% end %>
+
+</div>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_food_path,

@@ -8,10 +8,13 @@ gem 'mysql', '~> 2.9.1'
 
 # Use Bootstrap Framework
 gem 'twitter-bootstrap-rails'
+
 # Trying to use bootstrap-sass instead of twitter-bootstrap-rails in order to use Sass/Scss.
 #gem 'bootstrap-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
+gem 'angularjs-rails'
 
 # Makes forms and form validation much easier and cleaner
 gem 'simple_form'
