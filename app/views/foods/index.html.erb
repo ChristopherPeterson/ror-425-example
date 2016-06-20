@@ -3,6 +3,44 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<script type="application/javascript" charset="utf-8">
+  calories_array = []
+  id_array = []
+  <% @foods.each do |food| %>
+    id_array.push(<%= food.food_code %>)
+    calories_array.push(<%= food.calories %>)
+  <% end %>
+  $(function () {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "food_chart"
+      },
+      title: {
+        text: "Food Chart"
+      },
+      yAxis: {
+        title: {
+          text: "Calories"
+        },
+        series: [{
+          data: id_array
+        }]
+      },
+      xAxis: {
+        title: {
+          text: "Foods"
+        }
+      },
+      series: [{
+        data: calories_array
+      }]
+    })
+  })
+</script>
+<div id="food_chart" style="width: 600px; height: 400px;">
+
+</div>
+
 <div class="row">
 
   <% @foods.each do |food| %>
