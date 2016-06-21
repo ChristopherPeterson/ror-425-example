@@ -15,7 +15,6 @@
 //= require twitter/bootstrap
 //= require angular
 //= require highcharts
-//= require angular-resource
 //= require turbolinks
 //= require_tree .
 

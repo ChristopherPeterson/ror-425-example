@@ -14,8 +14,6 @@ gem 'twitter-bootstrap-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-gem 'angularjs-rails'
-
 # Makes forms and form validation much easier and cleaner
 gem 'simple_form'
 # Use Uglifier as compressor for JavaScript assets
